@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {List} from "./App";
-import {resetGlobalState} from "mobx/dist/core/globalstate";
 
 interface AddToDoProps{
     list: List;

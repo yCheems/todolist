@@ -6,14 +6,20 @@ import ToDoList from "./ToDoList";
 
 export class List {
   list:string[] = observable([]);
+  s: string;
   constructor() {
-    this.list = observable(JSON.parse(localStorage.getItem('list'))))
-  }
+    this.s = (localStorage.getItem('list')??' ');
+    this.s = this.s.replace(/[\[\]]/g,'');
+    this.s = this.s.replace(/"/g,'');
+    this.list = observable(this.s.split(','));
+    };
+  
 
 
   @action
   public removeFromList = (value: string): void =>{
     this.list.splice(this.list.indexOf(value),1); 
+    localStorage.setItem('list',JSON.stringify(this.list));
   }
   @action
   addToList = (value:string): void =>{
@@ -31,6 +37,7 @@ class App extends Component<{}>{
       <div>
         <ToDoList list={appList}/>
         <AddToDo list={appList}/>
+        <div>hi</div>
       </div>
     );
   }
