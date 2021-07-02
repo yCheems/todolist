@@ -13,7 +13,7 @@ class ToDoList extends Component<ToDoListProps>{
         const { list } = this.props;
         return(
             <div className='listDiv'>
-                {list.list.map((e:string,index: number) => <ListElement key={index} value={e} list={list}/>)}
+                {list.list.map((e:string,index: number) => <ListElement index={index} key={index} value={e} list={list}/>)}
             </div>
         )
     }
