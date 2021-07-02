@@ -4,15 +4,14 @@ import { observable, action} from 'mobx';
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 
+
 export class List {
   list:string[] = observable([]);
   s: string;
   constructor() {
-    this.s = (localStorage.getItem('list')??'');
-    this.s = this.s.replace(/[\[\]]/g,'');
-    this.s = this.s.replace(/"/g,'');
-    (this.s === '') ? this.list = observable([]) : this.list = observable(this.s.split(','));
-    };
+    this.s = localStorage.getItem('list') ?? '';
+    this.list = JSON.parse(this.s)
+  }
 
   @action
   public removeFromList = (index: number): void =>{
@@ -38,11 +37,13 @@ const appList = new List();
 class App extends Component<{}>{
   render(){
     return (
-      <div className='appDiv'>
-        <div>What to do:</div>
-        <ToDoList list={appList}/>
-        <AddToDo list={appList}/>
-      </div>
+        <div className='App'>
+          <div className='appDiv'>
+            <div>What to do:</div>
+            <AddToDo list={appList}/>
+            <ToDoList list={appList}/>
+          </div>
+        </div>
     );
   }
 }

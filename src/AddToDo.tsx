@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {List} from "./App";
 import './AddToDo.css';
+import {Icon} from "@skbkontur/react-icons";
 interface AddToDoProps{
     list: List;
 }
@@ -22,8 +23,8 @@ class AddToDo extends Component<AddToDoProps,AddToDoState>{
         return(
             <div className='addDiv'>
                 <form onSubmit={() => this.props.list.addToList(this.state.taskInput)}>
-                    <input type='text' placeholder='Новая задача...' name='newTask' onChange={() => this.inputHandler()}/>
-                    <button type='submit'> + </button>
+                    <input type='text' placeholder='Новая задача...' name='newTask' onChange={(event) => this.inputHandler()}/>
+                    <button type='submit'><Icon.Add /></button>
                 </form>
             </div>
         )
