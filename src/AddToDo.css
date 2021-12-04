@@ -1,18 +1,18 @@
-.addDiv{
-    min-height: 6rem;
-    display: inline-block;
+.addDiv {
+  min-height: 6rem;
+  display: inline-block;
 }
 
-.addDiv button{
-    width: 4rem;
-    background-color: forestgreen;
-    color: whitesmoke;
-    border: none;
-    margin: 0;
-    height: 2.3rem;
+.addDiv button {
+  width: 4rem;
+  background-color: forestgreen;
+  color: whitesmoke;
+  border: none;
+  margin: 0;
+  height: 2.45rem;
 }
-.addDiv input{
-    height: 2rem;
-    width: 80%;
-    margin: 0;
+.addDiv input {
+  height: 2rem;
+  width: 80%;
+  margin: 0;
 }

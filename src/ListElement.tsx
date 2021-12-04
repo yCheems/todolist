@@ -1,7 +1,7 @@
 import {observer} from "mobx-react";
 import React, {Component} from "react";
 import { List } from "./App.js";
-import styled from './ListElement.css';
+import './ListElement.css';
 import { Icon } from '@skbkontur/react-icons';
 
 
@@ -32,7 +32,7 @@ class ListElement extends Component<ListElementProps,ListElementState> {
     render(){
         return(
             <div className='listElement' >
-                <input className={styled.checkbox} type='checkbox' onChange={this.checkHandler} />
+                <input className={'checkbox'} type='checkbox' onChange={this.checkHandler} />
                 <input className='elementText' name='elementText' type='textarea' onChange={this.changeHandler} value={this.props.value} disabled={this.state.checked}/>
                 <button onClick={() => this.props.list.removeFromList(this.props.index)}><Icon.Trash/> </button>
             </div>

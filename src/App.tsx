@@ -1,6 +1,6 @@
 import './App.css';
 import  React, { Component } from 'react';
-import { observable, action} from 'mobx';
+import {observable, action} from 'mobx';
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 
@@ -10,14 +10,13 @@ export class List {
   s: string;
   constructor() {
     this.s = localStorage.getItem('list') ?? '';
-    this.list = JSON.parse(this.s)
+    this.list = this.s === '' ? [] : JSON.parse(this.s);
   }
 
   @action
   public removeFromList = (index: number): void =>{
     this.list.splice(index,1);
     localStorage.setItem('list',JSON.stringify(this.list));
-    console.log(this.list)
   }
   @action
   public addToList = (value:string): void =>{
